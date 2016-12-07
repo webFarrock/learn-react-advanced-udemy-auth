@@ -10,6 +10,12 @@ function tokenForUser(user){
     }, config.secret);
 }
 
+
+
+exports.signin = function (req, res, next){
+    res.send({token: tokenForUser(req.user)});
+}
+
 exports.signup = function (req, res, next){
 
     const email = req.body.email;
